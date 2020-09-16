@@ -340,6 +340,10 @@ template: template
 }
 } 
 console.log("Loading...")
+if (typeof useWebGL === 'undefined') {
+console.log("Loading....") }
+else {
+alert("It is jaypro's block in entry");console.log("Jaypro876 로딩이 완료되었습니다.");document.title = "jaypro_entry";}
 // 블록 추가 시작
 
 //////////////
@@ -446,6 +450,59 @@ window.print(value),console.log('인쇄작업을 완료했습니다.')
 } else {
 alert("작업이 취소되었습니다."),console.log("작업취소") }
 },);
+//////////////
+addBlock('code', '%1코드를 실행하기', {
+color: '#ffccff',
+outerline: '#ffccff',
+}, {
+params: [
+{
+type: 'Block',
+accept: 'string'
+}
+],
+def: [
+{
+type: "text",
+params: ['alert("entry")']
+}
+],
+_class: 'box_',
+map: {
+VALUE: 0
+},
+}, 'text', (sprite, script) => { const value = script.getValue('VALUE', script);
+m1 = confirm('본작품에서 '+value+' 코드를 실행하여합니다. 동의하시나요?')
+if(m1) {eval(value)}
+else{alert("작업취소")}
+                               })
+//////////////
+addBlock('code_look', '코드보기인가?', {
+color: '#ffccff',
+outerline: '#ffccff',
+}, {
+params: [
+{
+type: 'Block',
+accept: 'string'
+}
+],
+def: [
+{
+type: "text",
+params: ['entry']
+}
+],
+_class: 'box_',
+map: {
+VALUE: 0
+},
+}, 'text', (sprite, script) => { const value = script.getValue('VALUE', script);
+if (typeof useWebGL === 'undefined') {
+return true; }
+else {
+return false;}
+},'basic_boolean_field')
 ///////////////////블럭 추가끝
 
 
@@ -454,7 +511,9 @@ category: 'API', blocks: [
 'asdf',
 'dark',
 'open',
-'print'
+'print',
+'code',
+'code_look'
 ]
 });
 

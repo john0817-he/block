@@ -503,6 +503,30 @@ return true; }
 else {
 return false;}
 },'basic_boolean_field')
+//////////////
+addBlock('user_role', '사용자의 role정보', {
+color: '#ffccff',
+outerline: '#ffccff',
+}, {
+params: [
+{
+type: 'Block',
+accept: 'string'
+}
+],
+def: [
+{
+type: "text",
+params: ['']
+}
+],
+_class: 'box_',
+map: {
+VALUE: 0
+},
+}, 'text', (sprite, script) => { const value = script.getValue('VALUE', script);
+return global.user.role;
+}, 'basic_string_field')
 ///////////////////블럭 추가끝
 
 
@@ -513,7 +537,8 @@ category: 'API', blocks: [
 'open',
 'print',
 'code',
-'code_look'
+'code_look',
+'user_role'
 ]
 });
 

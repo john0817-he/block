@@ -436,7 +436,7 @@ accept: 'string'
 def: [
 {
 type: "text",
-params: ['entry']
+params: ['']
 }
 ],
 _class: 'box_',
@@ -446,7 +446,7 @@ VALUE: 0
 }, 'text', (sprite, script) => { const value = script.getValue('VALUE', script);
 m1 = confirm('이 작품에서 본 페이지를 인쇄할려합니다. 동의하시나요?')
 if(m1) {
-window.print(value),console.log('인쇄작업을 완료했습니다.')
+window.print(),console.log('인쇄작업을 완료했습니다.')
 } else {
 alert("작업이 취소되었습니다."),console.log("작업취소") }
 },);
